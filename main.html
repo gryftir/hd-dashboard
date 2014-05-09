@@ -9,103 +9,118 @@
 </head> 
 <body id="body">
   
-<!--  <div id="top">
+<div id="top">
     <div>
-      <a href="https://www.google.com/a/hackerdojo.com/ServiceLogin?service=ah&passive=true&continue=https://appengine.google.com/_ah/conflogin%3Fcontinue%3Dhttp://dashboard.hackerdojo.com/&ltmpl=ga&shdf=Ch4LEgZhaG5hbWUaEkhhY2tlciBEb2pvIEV2ZW50cwwSAmFoIhQJ5PFByChIovRb3rWKYJDo56ZxVCgBMhRzkwF9iPJ2xRvr7lyRUWfnfqHkqw" style="font-weight: bold;">Login</a>
+      <a href="login" style="font-weight: bold;">{{ login_text }}</a>
       |
       <a href="http://signup.hackerdojo.com/upgrade/needaccount">Need an account?</a>
+      <a>{{ dev_message }}</a>
     </div>
   </div>
--->
+
   <div id="content">
     <h1>Dojo Dashboard</h1>
-    
+    <h4>{{ greeting }}</h4>
     <div class="chunk">
-      <h3></h3>
-      <a id="mail" title="mail" href="https://mail.google.com/a/hackerdojo.com/">
-        <img src="/static/img/mail.png" />
-        <span>Mail</span>
+      <h3>Your Account</h3>
+      <a id="mail" title="Dojo Mail" href="https://mail.google.com/a/hackerdojo.com/">
+        <img src="static/img/mail.png" />
+        <span>Dojo Mail</span>
       </a>
-      <a id="events" title="events" href="http://events.hackerdojo.com/">
-        <img src="/static/img/events.png" />
-        <span>Events</span>
+      
+      <a id="keys" title="keys" href="{{ signup_url }}">
+        <img src="static/img/key.png" />
+        <span>Register A Key</span>
       </a>
-      <a id="kudos" title="kudos" href="http://kudos.hackerdojo.com/">
-        <img src="/static/img/kudos.png" />
-        <span>Kudos</span>
+
+      <a id="signin" title="signin" href="http://hackerdojo-signin.appspot.com/">
+        <img src="static/img/signin.png" />
+        <span>Sign In</span>
       </a>
-      <a id="voice" title="voice" href="http://voice.hackerdojo.com/forums/85749-issues-for-discussion">
-        <img src="/static/img/voice.png" />
-        <span>Voice</span>
+
+      <a id="mybilling" title="mybilling" href="billing">
+        <img src="static/img/bill.png" />
+        <span>My Billing</span>
       </a>
-      <a id="vote" title="vote" href="http://vote.hackerdojo.com">
-        <img src="/static/img/vote.jpg" />
-        <span>Vote</span>
-      </a>
+
     </div>
  
     <br />
   
     <div class="chunk">
-      <h3>The More You Know</h3>
+      <h3>What's Going On</h3>
+
+      <a id="log" title="log" href="http://log.hackerdojo.com/">
+        <img src="static/img/log.jpg" />
+        <span>Log</span>
+      </a>
+
+      <a id="events" title="events" href="http://events.hackerdojo.com/">
+        <img src="static/img/events.png" />
+        <span>Events</span>
+      </a>
+
       <a id="groups" title="groups" href="http://groups.google.com/a/hackerdojo.com/?hl=en&pli=1">
-        <img src="/static/img/groups.png" />
+        <img src="static/img/groups.png" />
         <span>Groups</span>
       </a>
-      <a id="wiki" title="wiki" href="http://wiki.hackerdojo.com/w/page/25437/FrontPage">
-        <img src="/static/img/wiki.jpg" />
-        <span>Wiki</span>
+      
+      <a id="map" title="map" href="http://kiosk.hackerdojo.com/map">
+        <img src="static/img/map.png" />
+        <span>Map</span>
       </a>
-      <a id="keys" title="keys" href="http://signup.hackerdojo.com/key">
-        <img src="/static/img/key.png" />
-        <span>Keys</span>
-      </a>
-      <a id="github" title="github" href="https://github.com/hackerdojo">
-        <img src="/static/img/github.gif" />
-        <span>Github</span>
-      </a>
-      <a id="bugs" title="bug tracking" href="http://track.hackerdojo.com/">
-        <img src="/static/img/Bug.png" />
-        <span>Facilities<br />Issues</span>
-      </a>
-      <a id="signs" title="signs" href="http://signs.hackerdojo.com/">
-        <img src="/static/img/signs.jpg" />
-        <span>Signs</span>
-      </a>
+
     </div>    
     
     <br />
  
     <div class="chunk">
-      <h3>Misc</h3>
-      <a id="transactions" title="transactions" href="http://finances.hackerdojo.com/">
-        <img src="/static/img/transactions.png" />
-        <span>Transactions</span>
+      <h3>Shape Dojo</h3>
+
+      <a id="vote" title="vote" href="http://hackerdojo-vote.appspot.com/">
+        <img src="static/img/vote.jpg" />
+        <span>Create a Poll</span>
       </a>
-      <a id="log" title="log" href="http://log.hackerdojo.com/">
-        <img src="/static/img/log.jpg" />
-        <span>Log</span>
+
+      <a id="transactions" title="transactions" href="http://vote.hackerdojo.com/">
+        <img src="static/img/transactions.png" />
+        <span>Propose a Purchase</span>
       </a>
-      <a id="members" title="members" href="http://signup.hackerdojo.com/memberlist">
-        <img src="/static/img/members.jpg" />
-        <span>Members<br />List</span>
+
+      <a id="github" title="github" href="https://github.com/hackerdojo">
+        <img src="static/img/github.gif" />
+        <span>Github</span>
       </a>
+
 <!--      
       <a id="signinStats" title="signin stats" href="http://hackerdojo-signin.appspot.com/stats">
-        <img src="/static/img/FILLER.png" />
+        <img src="static/img/FILLER.png" />
         <span>Sign-in Stats</span>
       </a>
+
+      <a id="members" title="members" href="http://signup.hackerdojo.com/memberlist">
+        <img src="static/img/members.jpg" />
+        <span>Members<br />List</span>
+      </a>
+
  -->
-      <a id="kiosk" title="kiosk" href="http://hackerdojo-kiosk.appspot.com/">
-        <img src="/static/img/kiosk.png" />
-        <span>Kiosk</span>
-      </a>
-      <a id="signin" title="signin" href="http://hackerdojo-signin.appspot.com/">
-        <img src="/static/img/signin.png" />
-        <span>Sign In</span>
-      </a>
     </div>
-        
+
+    <div class="chunk">
+      <h3>Learn</h3>
+
+      <a id="HowTo" title="HowTo" href="http://www.hackerdojo.com/HowToDojo">
+        <img src="static/img/howto.png" />
+        <span>How To Dojo</span>
+      </a>
+
+      <a id="wiki" title="wiki" href="http://wiki.hackerdojo.com">
+        <img src="static/img/help.jpg" />
+        <span>Wiki</span>
+      </a>
+
+    </div>
+
   </div>
 </body>
 </html>

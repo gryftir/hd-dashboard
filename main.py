@@ -1,19 +1,35 @@
 #!/usr/bin/env python
 
-import wsgiref.handlers
-
+import webapp2
+from google.appengine.api import users
 from google.appengine.ext.webapp import template
-from google.appengine.ext import webapp
 
-class MainHandler(webapp.RequestHandler):
-
+class MainHandler(webapp2.RequestHandler):
   def get(self):
-    self.response.out.write(template.render('main.html', locals()))
+    # Check if we're in the dev version.
+    url = self.request.url
+    dev = False
+    if "-dev" in url:
+      dev = True
 
-def main():
-  application = webapp.WSGIApplication([('/', MainHandler)], debug=True)
-  wsgiref.handlers.CGIHandler().run(application)
+    user = users.get_current_user()
+    values = {}
+    if not user:
+      values["login_text"] = "Login"
+      values["greeting"] = ""
+    else:
+      values["login_text"] = "Logout"
+      values["greeting"] = "Hello, %s!" % (user.nickname())
+    # If we're in the dev version, it should send people to the dev version of
+    # other apps.
+    if dev:
+      values["dev_message"] = "You are using the dev version of Dashboard."
+      values["signup_url"] = "http://signup-dev.hackerdojo.com/key"
+    else:
+      values["signup_url"] = "http://signup.hackerdojo.com/key"
 
-if __name__ == '__main__':
-  main()
-  
+    self.response.out.write(template.render("main.html", values))
+
+application = webapp2.WSGIApplication([
+    ("/", MainHandler),
+    ], debug=True)  
